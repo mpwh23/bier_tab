@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!DOCTYPE resources [
+        <!ENTITY appname "Bier_temponly">
+        <!ENTITY version "01">
+        ]>
+
+<resources>
+    <string name="app_name">&appname;_v&version;</string>
+    <string name="app_version">&version;</string>
+    <string name="prot_lbl_name">Name:</string>
+    <string name="prot_lbl_sud">Sud:</string>
+
+    <string name="lbl_datum">Datum:</string>
+    <string name="lbl_BE">BE:</string>
+    <string name="lbl_ibu">IBU</string>
+    <string name="lbl_Malz">Malz:</string>
+
+
+    <string name="unit_g">g</string>
+    <string name="unit_ebc">EBC</string>
+
+
+
+    <string name="Doppelpunkt">:</string>
+    <string name="Bindestrich">-</string>
+    <string name="lbl_version">v.:</string>
+    <string name="lbl_hopfen">Hopfen:</string>
+    <string name="lbl_komma">,</string>
+    <string name="lbl_unit_Alpha">%Alpha</string>
+    <string name="lbl_Hefe">Hefe:</string>
+    <string name="lbl_Wasser">Wasser:</string>
+    <string name="lbl_unit_Liter">Liter</string>
+    <string name="lbl_Hauptguss">Hauptguss:</string>
+    <string name="lbl_Nachguss">Nachguss</string>
+    <string name="lbl_Rasten">Rasten</string>
+
+</resources>

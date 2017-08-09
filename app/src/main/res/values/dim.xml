@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="txt_big">20sp</dimen>
+
+    <dimen name="txt_header">25sp</dimen>
+    <dimen name="digit_header">60dp</dimen>
+
+
+    <dimen name="et_gramm_4digit">80dp</dimen>
+    <dimen name="et_malt">350dp</dimen>
+    <dimen name="et_hop">350dp</dimen>
+    <dimen name="et_hefe">350dp</dimen>
+    <dimen name="malt_row_height">46dp</dimen>
+
+    <dimen name="div_height">1dp</dimen>
+
+    <dimen name="txt_normal">25sp</dimen>
+    <dimen name="txt_smal">18sp</dimen>
+
+    <dimen name="txt_unit">20sp</dimen>
+
+
+
+
+</resources>
