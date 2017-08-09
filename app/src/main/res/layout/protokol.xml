@@ -96,7 +96,7 @@
 
     <EditText
         android:id="@+id/prot_et_datum"
-        android:layout_width="120dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="8dp"
@@ -2059,5 +2059,16 @@
         android:text="load"
         app:layout_constraintBottom_toBottomOf="@+id/btn_test"
         app:layout_constraintLeft_toRightOf="@+id/btn_test" />
+
+    <Button
+        android:id="@+id/prot_btn_add_date"
+        android:layout_width="64dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="8dp"
+        android:text="heute"
+        app:layout_constraintBottom_toBottomOf="@+id/prot_et_datum"
+        app:layout_constraintLeft_toRightOf="@+id/prot_et_datum"
+        tools:layout_editor_absoluteY="61dp" />
 
 </android.support.constraint.ConstraintLayout>

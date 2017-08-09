@@ -8,7 +8,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Observer;
 import java.util.Observable;
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements BeanDiscoveryList
     //Objekte
     final String TAG = "Bier";
     //UI
-    public Button myButton,myButton2;
+    public Button myButton,myButton2,btn_prot_add_date;
     public ImageButton btn_addm,btn_addh,btn_addr;
     public ImageButton btn_subm_01,btn_subm_02,btn_subm_03,btn_subm_04,btn_subm_05,btn_subm_06;
     public ImageButton btn_subh_01,btn_subh_02,btn_subh_03,btn_subh_04;
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements BeanDiscoveryList
     public EditText et_EBCm1min,et_EBCm2min,et_EBCm3min,et_EBCm4min,et_EBCm5min,et_EBCm6min;
     public EditText et_EBCm1max,et_EBCm2max,et_EBCm3max,et_EBCm4max,et_EBCm5max,et_EBCm6max;
     public EditText et_malt01g,et_malt02g,et_malt03g,et_malt04g,et_malt05g,et_malt06g;
+    public EditText et_prot_datum;
     public AutoCompleteTextView actf_hop01,actf_hop02,actf_hop03,actf_hop04;
     public EditText et_hop01a,et_hop02a,et_hop03a,et_hop04a;
     public AutoCompleteTextView actf_hefe01;
@@ -75,10 +78,31 @@ public class MainActivity extends AppCompatActivity implements BeanDiscoveryList
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //erstelle Hopfen, Hefe und Malzliste, wenn sie nicht existieren
+        if(getFileStreamPath(filename_malt) == null || !getFileStreamPath(filename_malt).exists()) {
+            resetfile(filename_malt,baseMALT,maltlist);
+        }
+        if(getFileStreamPath(filename_hop) == null || !getFileStreamPath(filename_hop).exists()) {
+            resetfile(filename_hop,baseHOP,hoplist);
+        }
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.protokol);
 
         //Test
+        btn_prot_add_date = (Button) findViewById(R.id.prot_btn_add_date);
+        btn_prot_add_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+                et_prot_datum = (EditText) findViewById(R.id.prot_et_datum);
+                et_prot_datum.setText(df.format(c.getTime()));
+            }
+        });
         myButton = (Button) findViewById(R.id.btn_test);
         myButton2= (Button) findViewById(R.id.btn_test2);
         myButton.setOnClickListener(new View.OnClickListener() {
@@ -350,7 +374,6 @@ public class MainActivity extends AppCompatActivity implements BeanDiscoveryList
         });
 */
 
-
         //region add buttons (3x)
         btn_addm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -465,8 +488,6 @@ public class MainActivity extends AppCompatActivity implements BeanDiscoveryList
                 sub_rast(5);
             }
         });//endregion
-
-
     }
 
     //Datenbank
@@ -998,7 +1019,7 @@ public class MainActivity extends AppCompatActivity implements BeanDiscoveryList
             // 0                                                                                                   1                                                                                                   2                                                      2
             // 0         1         2         3         4         5         6         7         8         9         0         1         2         3         4         5         6         7         8         9         0         1         2         3         4         5    5
             // 0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345
-            // 0               1               2               3               4               5               6               7               8               9               A               B               C               D               E               F
+            // 0               1               2               3               4               5               6               7               8               9               A               B               C               D               E               F              F
             // 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
         }
         return new String(out2);
