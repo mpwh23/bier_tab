@@ -1,4 +1,4 @@
-package de.moja.bier_v06;
+package de.moja.bier_tab_v2_XX;
 
 import java.util.Observable;
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.moja.bier_v06.MainActivity"
+    tools:context="de.moja.bier_tab_v2_XX.MainActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="0dp"
     android:background="@color/a_hgr">
