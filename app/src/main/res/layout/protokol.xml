@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.moja.bier_tab_v2_XX.MainActivity"
+    tools:context="de.moja.bier_tab_v2_XX.Protokoll"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="0dp"
     android:background="@color/a_hgr">
@@ -2041,7 +2041,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_test"
+        android:id="@+id/btn_test_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
@@ -2051,14 +2051,14 @@
         app:layout_constraintTop_toBottomOf="@+id/prot_alk" />
 
     <Button
-        android:id="@+id/btn_test2"
+        android:id="@+id/btn_test_load"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
         android:layout_marginStart="24dp"
         android:text="load"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_test"
-        app:layout_constraintLeft_toRightOf="@+id/btn_test" />
+        app:layout_constraintBottom_toBottomOf="@+id/btn_test_save"
+        app:layout_constraintLeft_toRightOf="@+id/btn_test_save" />
 
     <Button
         android:id="@+id/prot_btn_add_date"

@@ -1,6 +1,7 @@
 package de.moja.bier_tab_v2_XX;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,6 +9,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -41,7 +44,7 @@ import com.punchthrough.bean.sdk.BeanDiscoveryListener;
 import com.punchthrough.bean.sdk.Bean;
 
 
-public class MainActivity extends AppCompatActivity implements BeanDiscoveryListener, BeanListener, Observer {
+public class Protokoll extends AppCompatActivity implements BeanDiscoveryListener, BeanListener, Observer {
     //Objekte
     final String TAG = "Bier";
     //UI
@@ -103,8 +106,8 @@ public class MainActivity extends AppCompatActivity implements BeanDiscoveryList
                 et_prot_datum.setText(df.format(c.getTime()));
             }
         });
-        myButton = (Button) findViewById(R.id.btn_test);
-        myButton2= (Button) findViewById(R.id.btn_test2);
+        myButton = (Button) findViewById(R.id.btn_test_save);
+        myButton2= (Button) findViewById(R.id.btn_test_load);
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,10 +123,10 @@ public class MainActivity extends AppCompatActivity implements BeanDiscoveryList
         myButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG,"load (list)");
-                for(int n=0;n<maltlist.size();n++){
-                    Log.d(TAG,"list: (" + n + ") "+ maltlist.get(n));
-                }
+                Log.d(TAG,"TESTBUTTON (load) pressed");
+
+                String sourceFileUri = "/data/user/0/de.moja.bier_v06/files/malt.db";
+
 
             }
         });
