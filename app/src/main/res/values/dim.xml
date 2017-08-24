@@ -10,7 +10,10 @@
     <dimen name="et_malt">350dp</dimen>
     <dimen name="et_hop">350dp</dimen>
     <dimen name="et_hefe">350dp</dimen>
+    <dimen name="et_zusatz">450dp</dimen>
     <dimen name="malt_row_height">46dp</dimen>
+
+    <dimen name="startbutton">250dp</dimen>
 
     <dimen name="div_height">1dp</dimen>
 

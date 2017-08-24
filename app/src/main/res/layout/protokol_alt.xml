@@ -1,0 +1,2625 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <android.support.constraint.ConstraintLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="2000dp"
+                android:background="@color/a_hgr"
+                tools:context="de.moja.bier_tab_v2_XX.main.Protokoll"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="0dp">
+
+                <!-- https://www.youtube.com/watch?v=00LLd7qr9sA -->
+
+
+                <TextView
+                    android:id="@+id/prot_lbl_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/prot_lbl_name"
+                    android:textSize="@dimen/txt_header"
+                    app:layout_constraintBottom_toBottomOf="@+id/prot_et_name"
+                    app:layout_constraintRight_toLeftOf="@+id/prot_et_name" />
+
+                <EditText
+                    android:id="@+id/prot_et_name"
+                    android:layout_width="550dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/eingabefeld"
+                    android:cursorVisible="true"
+                    android:ems="10"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:inputType="text"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/a_text_user"
+                    android:textColorHighlight="@color/colorAccent"
+                    android:textColorHint="@color/a_text_label"
+                    android:textSize="@dimen/txt_normal"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_et_datum"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/prot_lbl_sud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/prot_lbl_sud"
+                    android:textSize="@dimen/txt_header"
+                    app:layout_constraintBottom_toBottomOf="@+id/prot_et_sud"
+                    app:layout_constraintRight_toLeftOf="@+id/prot_et_sud" />
+
+                <EditText
+                    android:id="@+id/prot_et_sud"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/eingabefeld"
+                    android:cursorVisible="true"
+                    android:ems="10"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/a_text_user"
+                    android:textColorHighlight="@color/colorAccent"
+                    android:textColorHint="@color/a_text_label"
+                    android:textSize="@dimen/txt_normal"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/prot_et_name" />
+
+                <TextView
+                    android:id="@+id/prot_lbl_datum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/lbl_datum"
+                    android:textSize="@dimen/txt_header"
+                    app:layout_constraintBottom_toBottomOf="@+id/prot_et_datum"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <EditText
+                    android:id="@+id/prot_et_datum"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/eingabefeld"
+                    android:cursorVisible="true"
+                    android:ems="10"
+
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:inputType="date"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/a_text_user"
+                    android:textColorHighlight="@color/colorAccent"
+                    android:textColorHint="@color/a_text_label"
+                    android:textSize="@dimen/txt_normal"
+                    app:layout_constraintLeft_toRightOf="@+id/prot_lbl_datum"
+                    app:layout_constraintTop_toBottomOf="@+id/prot_et_name" />
+
+                <TextView
+                    android:id="@+id/prot_lbl_BE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/lbl_BE"
+                    android:textSize="@dimen/txt_header"
+                    app:layout_constraintBottom_toBottomOf="@+id/prot_et_ibu"
+                    app:layout_constraintRight_toLeftOf="@+id/prot_et_ibu" />
+
+                <EditText
+                    android:id="@+id/prot_et_ibu"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/eingabefeld"
+                    android:cursorVisible="true"
+                    android:ems="10"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/a_text_user"
+                    android:textColorHighlight="@color/colorAccent"
+                    android:textColorHint="@color/a_text_label"
+                    android:textSize="@dimen/txt_normal"
+                    app:layout_constraintRight_toLeftOf="@+id/prot_lbl_unit_ibu"
+                    app:layout_constraintTop_toTopOf="@+id/prot_et_datum" />
+
+                <TextView
+                    android:id="@+id/prot_lbl_unit_ibu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/lbl_ibu"
+                    android:textAlignment="textEnd"
+                    android:textSize="@dimen/txt_unit"
+                    app:layout_constraintBottom_toBottomOf="@+id/prot_et_ibu"
+                    app:layout_constraintRight_toRightOf="@+id/prot_et_name" />
+
+                <EditText
+                    android:id="@+id/prot_et_version"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/eingabefeld"
+                    android:cursorVisible="true"
+                    android:ems="10"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/a_text_user"
+                    android:textColorHighlight="@color/colorAccent"
+                    android:textColorHint="@color/a_text_label"
+                    android:textSize="@dimen/txt_normal"
+                    app:layout_constraintRight_toRightOf="@+id/prot_et_sud"
+                    app:layout_constraintTop_toTopOf="@+id/prot_et_datum" />
+
+                <TextView
+                    android:id="@+id/prot_lbl_v"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/lbl_version"
+                    android:textSize="@dimen/txt_header"
+                    app:layout_constraintBottom_toBottomOf="@+id/prot_et_version"
+                    app:layout_constraintRight_toLeftOf="@+id/prot_et_version" />
+
+                <ImageView
+                    android:id="@+id/prot_div_01"
+                    android:layout_width="800dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/prot_et_datum"
+                    app:srcCompat="@color/AM_grey" />
+
+                <!-- MALT -->
+                <TextView
+                    android:id="@+id/prot_lbl_malt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/lbl_Malz"
+                    android:textSize="@dimen/txt_header"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/prot_div_01"
+                    tools:layout_constraintLeft_creator="1" />
+
+                <LinearLayout
+                    android:id="@+id/prot_malt01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_lbl_malt"
+                    app:layout_constraintTop_toBottomOf="@+id/prot_lbl_malt">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/prot_actf_malt01"
+                        android:layout_width="@dimen/et_malt"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:completionThreshold="1"
+                        android:cursorVisible="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="textNoSuggestions"
+                        android:popupBackground="@color/a_border"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <TextView
+                        android:id="@+id/lbl_doppelpunkt01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/Doppelpunkt"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt01g"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_g_01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/unit_g"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt01EBCmin"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_bindestrich_01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/Bindestrich"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt01EBCmax"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_ebc_01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/unit_ebc"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/prot_submalt_01"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_weight="1"
+                    android:background="@color/AM_dark"
+                    app:layout_constraintBottom_toBottomOf="@+id/prot_malt01"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+                <LinearLayout
+                    android:id="@+id/malt02"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_lbl_malt"
+                    app:layout_constraintTop_toBottomOf="@+id/prot_malt01">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/prot_actf_malt02"
+                        android:layout_width="@dimen/et_malt"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:completionThreshold="1"
+                        android:cursorVisible="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="textNoSuggestions"
+                        android:popupBackground="@color/a_border"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <TextView
+                        android:id="@+id/lbl_doppelpunkt02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/Doppelpunkt"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt02g"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_g_02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/unit_g"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt02EBCmin"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_bindestrich_02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/Bindestrich"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt02EBCmax"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_ebc_02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/unit_ebc"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        tools:layout_editor_absoluteY="556dp" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/prot_submalt_02"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_weight="1"
+                    android:background="@color/AM_dark"
+                    app:layout_constraintBottom_toBottomOf="@+id/malt02"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+                <LinearLayout
+                    android:id="@+id/malt03"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_lbl_malt"
+                    app:layout_constraintTop_toBottomOf="@+id/malt02">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/prot_actf_malt03"
+                        android:layout_width="@dimen/et_malt"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:completionThreshold="1"
+                        android:cursorVisible="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="textNoSuggestions"
+                        android:popupBackground="@color/a_border"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <TextView
+                        android:id="@+id/lbl_doppelpunkt03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/Doppelpunkt"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt03g"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_g_03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/unit_g"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt03EBCmin"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_bindestrich_03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/Bindestrich"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt03EBCmax"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_ebc_03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/unit_ebc"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/prot_submalt_03"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_weight="1"
+                    android:background="@color/AM_dark"
+                    app:layout_constraintBottom_toBottomOf="@+id/malt03"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+                <LinearLayout
+                    android:id="@+id/malt04"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_lbl_malt"
+                    app:layout_constraintTop_toBottomOf="@+id/malt03">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/prot_actf_malt04"
+                        android:layout_width="@dimen/et_malt"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:completionThreshold="1"
+                        android:cursorVisible="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="textNoSuggestions"
+                        android:popupBackground="@color/a_border"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <TextView
+                        android:id="@+id/lbl_doppelpunkt04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/Doppelpunkt"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt04g"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_g_04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/unit_g"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt04EBCmin"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_bindestrich_04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/Bindestrich"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt04EBCmax"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_ebc_04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/unit_ebc"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/prot_submalt_04"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_weight="1"
+                    android:background="@color/AM_dark"
+                    app:layout_constraintBottom_toBottomOf="@+id/malt04"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+                <LinearLayout
+                    android:id="@+id/malt05"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_lbl_malt"
+                    app:layout_constraintTop_toBottomOf="@+id/malt04">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/prot_actf_malt05"
+                        android:layout_width="@dimen/et_malt"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:completionThreshold="1"
+                        android:cursorVisible="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="textNoSuggestions"
+                        android:popupBackground="@color/a_border"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <TextView
+                        android:id="@+id/lbl_doppelpunkt05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/Doppelpunkt"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt05g"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_g_05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/unit_g"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt05EBCmin"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_bindestrich_05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/Bindestrich"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt05EBCmax"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_ebc_05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/unit_ebc"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/prot_submalt_05"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_weight="1"
+                    android:background="@color/AM_dark"
+                    app:layout_constraintBottom_toBottomOf="@+id/malt05"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+                <LinearLayout
+                    android:id="@+id/malt06"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_lbl_malt"
+                    app:layout_constraintTop_toBottomOf="@+id/malt05">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/prot_actf_malt06"
+                        android:layout_width="@dimen/et_malt"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:completionThreshold="1"
+                        android:cursorVisible="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="textNoSuggestions"
+                        android:popupBackground="@color/a_border"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <TextView
+                        android:id="@+id/lbl_doppelpunkt06"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/Doppelpunkt"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt06g"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_g_06"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/unit_g"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt06EBCmin"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_bindestrich_06"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/Bindestrich"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_malt06EBCmax"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_ebc_06"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/unit_ebc"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        tools:layout_editor_absoluteY="556dp" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/prot_submalt_06"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_weight="1"
+                    android:background="@color/AM_dark"
+                    app:layout_constraintBottom_toBottomOf="@+id/malt06"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="333dp"
+                    android:layout_marginStart="333dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Σ :"
+                    android:textColor="@color/a_text_user"
+                    android:textSize="@dimen/txt_header"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_malt01"
+                    app:layout_constraintTop_toBottomOf="@+id/malt06" />
+
+                <TextView
+                    android:id="@+id/prot_tv_schuettung"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:paddingEnd="8dp"
+                    android:text="0000"
+                    android:textColor="@color/a_text_user"
+                    android:textSize="@dimen/txt_header"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView2"
+                    app:layout_constraintLeft_toRightOf="@+id/textView2" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1"
+                    android:text="@string/unit_g"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/a_text_user"
+                    android:textSize="@dimen/txt_unit"
+                    app:layout_constraintBottom_toBottomOf="@+id/prot_tv_schuettung"
+                    app:layout_constraintLeft_toRightOf="@+id/prot_tv_schuettung" />
+
+                <TextView
+                    android:id="@+id/prot_tv_ebc"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:text="0"
+                    android:textColor="@color/a_text_user"
+                    android:textSize="@dimen/txt_header"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView2"
+                    app:layout_constraintRight_toLeftOf="@+id/textView8" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="~"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/a_text_user"
+                    android:textSize="@dimen/txt_unit"
+                    app:layout_constraintBottom_toBottomOf="@+id/prot_tv_schuettung"
+                    app:layout_constraintRight_toLeftOf="@+id/prot_tv_ebc" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
+                    android:text="@string/unit_ebc"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/a_text_user"
+                    android:textSize="@dimen/txt_unit"
+                    app:layout_constraintBottom_toBottomOf="@+id/prot_tv_schuettung"
+                    app:layout_constraintRight_toRightOf="@+id/prot_malt01" />
+
+                <ImageButton
+                    android:id="@+id/prot_btn_addmalt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/AM_darkgrey"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_malt01"
+                    app:layout_constraintTop_toBottomOf="@+id/malt06"
+                    app:srcCompat="@drawable/addmalt_01" />
+
+                <!-- HOPP -->
+                <TextView
+                    android:id="@+id/prot_lbl_hop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:text="@string/lbl_hopfen"
+                    android:textSize="@dimen/txt_header"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/prot_tv_schuettung"
+                    tools:layout_constraintLeft_creator="1" />
+
+                <LinearLayout
+                    android:id="@+id/hop01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_lbl_hop"
+                    app:layout_constraintTop_toBottomOf="@+id/prot_lbl_hop">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/prot_actf_hop1"
+                        android:layout_width="@dimen/et_hop"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:completionThreshold="1"
+                        android:cursorVisible="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:popupBackground="@color/a_border"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <TextView
+                        android:id="@+id/lbl_komma01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_komma"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_hop01iso"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_Alpha01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_unit_Alpha"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                    <ImageButton
+                        android:id="@+id/prot_subhop_01"
+                        android:layout_width="@dimen/malt_row_height"
+                        android:layout_height="@dimen/malt_row_height"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:background="@color/AM_dark"
+                        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/hop02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_lbl_hop"
+                    app:layout_constraintTop_toBottomOf="@+id/hop01">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/prot_actf_hop2"
+                        android:layout_width="@dimen/et_hop"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:completionThreshold="1"
+                        android:cursorVisible="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:popupBackground="@color/a_border"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <TextView
+                        android:id="@+id/lbl_komma02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_komma"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_hop02iso"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_Alpha02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_unit_Alpha"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                    <ImageButton
+                        android:id="@+id/prot_subhop_02"
+                        android:layout_width="@dimen/malt_row_height"
+                        android:layout_height="@dimen/malt_row_height"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:background="@color/AM_dark"
+                        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/hop03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_lbl_hop"
+                    app:layout_constraintTop_toBottomOf="@+id/hop02">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/prot_actf_hop3"
+                        android:layout_width="@dimen/et_hop"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:completionThreshold="1"
+                        android:cursorVisible="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:popupBackground="@color/a_border"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <TextView
+                        android:id="@+id/lbl_komma03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_komma"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_hop03iso"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_Alpha03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_unit_Alpha"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                    <ImageButton
+                        android:id="@+id/prot_subhop_03"
+                        android:layout_width="@dimen/malt_row_height"
+                        android:layout_height="@dimen/malt_row_height"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:background="@color/AM_dark"
+                        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/hop04"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_lbl_hop"
+                    app:layout_constraintTop_toBottomOf="@+id/hop03">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/prot_actf_hop4"
+                        android:layout_width="@dimen/et_hop"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:completionThreshold="1"
+                        android:cursorVisible="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:popupBackground="@color/a_border"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <TextView
+                        android:id="@+id/lbl_komma04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_komma"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_hop04iso"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_Alpha04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_unit_Alpha"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                    <ImageButton
+                        android:id="@+id/prot_subhop_04"
+                        android:layout_width="@dimen/malt_row_height"
+                        android:layout_height="@dimen/malt_row_height"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:background="@color/AM_dark"
+                        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/prot_btn_addhop"
+                    android:layout_width="350dp"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/AM_darkgrey"
+                    app:layout_constraintLeft_toLeftOf="@+id/hop01"
+                    app:layout_constraintTop_toBottomOf="@+id/hop04"
+                    app:srcCompat="@drawable/addhop_01" />
+
+                <!-- HEFE -->
+                <TextView
+                    android:id="@+id/prot_lbl_hefe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/lbl_Hefe"
+                    android:textSize="@dimen/txt_header"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/prot_btn_addhop"
+                    tools:layout_constraintLeft_creator="1" />
+
+                <LinearLayout
+                    android:id="@+id/hefe01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="@+id/prot_lbl_hefe"
+                    app:layout_constraintTop_toBottomOf="@+id/prot_lbl_hefe">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/prot_actf_hefe01"
+                        android:layout_width="@dimen/et_hefe"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:completionThreshold="1"
+                        android:cursorVisible="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:popupBackground="@color/a_border"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <TextView
+                        android:id="@+id/lbl_komma05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_komma"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/prot_et_hefe01g"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_g_07"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/unit_g"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        tools:layout_editor_absoluteY="556dp" />
+
+                </LinearLayout>
+
+                <!-- WASSER -->
+                <TextView
+                    android:id="@+id/Wasser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/lbl_Wasser"
+                    android:textSize="@dimen/txt_header"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/hefe01"
+                    tools:layout_constraintLeft_creator="1" />
+
+                <LinearLayout
+                    android:id="@+id/h2o"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="@+id/Wasser"
+                    app:layout_constraintTop_toBottomOf="@+id/Wasser">
+
+                    <TextView
+                        android:id="@+id/prot_tv_Gesamtmenge"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:singleLine="true"
+                        android:text="99"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_Liter01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_unit_Liter"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <TextView
+                        android:id="@+id/prot_lbl_HG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_Hauptguss"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <EditText
+                        android:id="@+id/prot_et_HG"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_Liter02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_unit_Liter"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <TextView
+                        android:id="@+id/prot_lbl_NG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_Nachguss"
+                        android:textSize="@dimen/txt_normal" />
+
+                    <EditText
+                        android:id="@+id/prot_et_NG"
+                        android:layout_width="@dimen/et_gramm_4digit"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/eingabefeld"
+                        android:cursorVisible="true"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/a_text_user"
+                        android:textColorHighlight="@color/colorAccent"
+                        android:textColorHint="@color/a_text_label"
+                        android:textSize="@dimen/txt_normal"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_unit_Liter03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_unit_Liter"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/txt_normal" />
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/prot_div_02"
+                    android:layout_width="800dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/h2o"
+                    app:srcCompat="@color/AM_grey" />
+
+                <!-- RASTEN -->
+                <TextView
+                    android:id="@+id/Rasten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/lbl_Rasten"
+                    android:textSize="@dimen/txt_header"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/prot_div_02"
+                    tools:layout_constraintLeft_creator="1" />
+
+                <LinearLayout
+                    android:id="@+id/rast01"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Rasten"
+                    tools:layout_constraintLeft_creator="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/prot_et_rast1"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@drawable/eingabefeld"
+                            android:cursorVisible="true"
+                            android:ems="10"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:inputType="number"
+                            android:selectAllOnFocus="true"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/a_text_user"
+                            android:textColorHighlight="@color/colorAccent"
+                            android:textColorHint="@color/a_text_label"
+                            android:textSize="@dimen/txt_big" />
+
+                        <ImageButton
+                            android:id="@+id/prot_subrast_01"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@color/AM_dark"
+                            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/prot_lbl_r1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Verzuckerungs-\nrast"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rast02"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toRightOf="@+id/rast01"
+                    app:layout_constraintTop_toTopOf="@+id/rast01">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/prot_et_rast2"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@drawable/eingabefeld"
+                            android:cursorVisible="true"
+                            android:ems="10"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:inputType="number"
+                            android:selectAllOnFocus="true"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/a_text_user"
+                            android:textColorHighlight="@color/colorAccent"
+                            android:textColorHint="@color/a_text_label"
+                            android:textSize="@dimen/txt_big" />
+
+                        <ImageButton
+                            android:id="@+id/prot_subrast_02"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@color/AM_dark"
+                            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/prot_lbl_r2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Einmaischen"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rast03"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toRightOf="@+id/rast02"
+                    app:layout_constraintTop_toTopOf="@+id/rast01">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/prot_et_rast3"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@drawable/eingabefeld"
+                            android:cursorVisible="true"
+                            android:ems="10"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:inputType="number"
+                            android:selectAllOnFocus="true"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/a_text_user"
+                            android:textColorHighlight="@color/colorAccent"
+                            android:textColorHint="@color/a_text_label"
+                            android:textSize="@dimen/txt_big" />
+
+                        <ImageButton
+                            android:id="@+id/prot_subrast_03"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@color/AM_dark"
+                            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/prot_lbl_r3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Einmaischen"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rast04"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toRightOf="@+id/rast03"
+                    app:layout_constraintTop_toTopOf="@+id/rast01">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/prot_et_rast4"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@drawable/eingabefeld"
+                            android:cursorVisible="true"
+                            android:ems="10"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:inputType="number"
+                            android:selectAllOnFocus="true"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/a_text_user"
+                            android:textColorHighlight="@color/colorAccent"
+                            android:textColorHint="@color/a_text_label"
+                            android:textSize="@dimen/txt_big" />
+
+                        <ImageButton
+                            android:id="@+id/prot_subrast_04"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@color/AM_dark"
+                            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/prot_lbl_r4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Einmaischen"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rast05"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toRightOf="@+id/rast04"
+                    app:layout_constraintTop_toTopOf="@+id/rast01">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/prot_et_rast5"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@drawable/eingabefeld"
+                            android:cursorVisible="true"
+                            android:ems="10"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:inputType="number"
+                            android:selectAllOnFocus="true"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/a_text_user"
+                            android:textColorHighlight="@color/colorAccent"
+                            android:textColorHint="@color/a_text_label"
+                            android:textSize="@dimen/txt_big" />
+
+                        <ImageButton
+                            android:id="@+id/prot_subrast_05"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@color/AM_dark"
+                            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/prot_lbl_r5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Einmaischen"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/prot_btn_addrast"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@color/AM_darkgrey"
+                    app:layout_constraintBottom_toBottomOf="@+id/rast01"
+                    app:layout_constraintLeft_toRightOf="@+id/rast05"
+                    app:srcCompat="@android:drawable/ic_menu_add" />
+
+                <ImageView
+                    android:id="@+id/prot_div_03"
+                    android:layout_width="800dp"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rast01"
+                    app:srcCompat="@color/AM_grey" />
+
+                <LinearLayout
+                    android:id="@+id/prot_menge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:padding="0dp"
+                    android:paddingBottom="0dp"
+                    android:paddingEnd="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingStart="0dp"
+                    android:paddingTop="0dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/prot_div_03"
+                    tools:layout_constraintLeft_creator="1">
+
+                    <TextView
+                        android:id="@+id/lbl_prot_menge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Menge:"
+                        android:textSize="@dimen/txt_header"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/editText03"
+                        android:layout_width="@dimen/digit_header"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="numberDecimal"
+                        android:text="50"
+                        android:textSize="@dimen/txt_big"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_prot_unitliter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="0dp"
+                        android:layout_weight="1"
+                        android:text="Liter"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/txt_unit"
+                        app:layout_constraintRight_toLeftOf="@+id/editText03"
+                        tools:layout_editor_absoluteY="556dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/prot_alk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="59dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:padding="0dp"
+                    android:paddingBottom="0dp"
+                    android:paddingEnd="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingStart="0dp"
+                    android:paddingTop="0dp"
+                    app:layout_constraintLeft_toRightOf="@+id/prot_menge"
+                    app:layout_constraintTop_toTopOf="@+id/prot_menge">
+
+                    <TextView
+                        android:id="@+id/lbl_prot_alk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Alkohol.:"
+                        android:textSize="@dimen/txt_header"
+                        tools:layout_editor_absoluteX="325dp"
+                        tools:layout_editor_absoluteY="574dp" />
+
+                    <EditText
+                        android:id="@+id/editText04"
+                        android:layout_width="@dimen/digit_header"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="numberDecimal"
+                        android:text="50"
+                        android:textSize="@dimen/txt_header"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="544dp" />
+
+                    <TextView
+                        android:id="@+id/lbl_prot_unit_vol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="0dp"
+                        android:layout_weight="1"
+                        android:text="Vol.%"
+                        android:textAlignment="textEnd"
+                        android:textSize="@dimen/txt_unit"
+                        app:layout_constraintRight_toLeftOf="@+id/editText03"
+                        tools:layout_editor_absoluteY="556dp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_test_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="save"
+                    app:layout_constraintLeft_toRightOf="@+id/prot_alk"
+                    app:layout_constraintTop_toBottomOf="@+id/prot_alk" />
+
+                <Button
+                    android:id="@+id/btn_test_load"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:text="load"
+                    app:layout_constraintBottom_toBottomOf="@+id/btn_test_save"
+                    app:layout_constraintLeft_toRightOf="@+id/btn_test_save" />
+
+                <Button
+                    android:id="@+id/prot_btn_add_date"
+                    android:layout_width="64dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:text="heute"
+                    app:layout_constraintBottom_toBottomOf="@+id/prot_et_datum"
+                    app:layout_constraintLeft_toRightOf="@+id/prot_et_datum" />
+
+                <LinearLayout
+                    android:layout_width="438dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_test_save"
+                    tools:layout_editor_absoluteX="8dp">
+
+                    <TextView
+                        android:id="@+id/textView39"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView40"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView41"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView36"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView37"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView38"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView33"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView34"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView35"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView30"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView31"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView32"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView27"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView28"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView29"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView26"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView22"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView23"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="1313dp" />
+                </LinearLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

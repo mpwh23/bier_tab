@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.moja.bier_tab_v2_XX">
-    <!--uses-sdk
-        android:minSdkVersion="23"
-        android:targetSdkVersion="25" /-->
+    <uses-sdk
+        android:minSdkVersion="22"
+        android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="de.moja.bier_tab_v2_XX.app.AppController"
+        android:name="de.moja.bier_tab_v2_XX.web_connect.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,20 +20,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".web_connect.LoginActivity"
             android:windowSoftInputMode="stateVisible|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".main.Protokoll">
+            android:windowSoftInputMode="adjustPan"
+        </activity>
         <activity
-            android:name=".activity.RegisterActivity"
+            android:name=".web_connect.RegisterActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".activity.StartPage"
+            android:name=".web_connect.AllProductsActivity"
+            android:label="All Products" >
+        </activity>
+        <activity
+            android:name=".web_connect.EditProductActivity"
+            android:label="Edit Product" >
+        </activity>
+        <activity android:name=".helper.Pop_Btn01" android:theme="@style/AppTheme.amPopup"></activity>
+        <activity
+            android:name=".main.StartPage"
             android:label="@string/app_name"
             android:launchMode="singleTop" />
         <!--activity android:name="de.moja.bier_v06.myalert" android:label="@string/app_name" android:theme="@android:style/Theme.DeviceDefault.Dialog.Alert"/-->

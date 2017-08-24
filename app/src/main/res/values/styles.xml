@@ -11,6 +11,19 @@
 
     </style>
 
+    <style name="AppTheme.amPopup">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+
+    </style>
+    <style name="checkBoxStyle" parent="Base.Theme.AppCompat">
+        <item name="colorAccent">@color/a_text_user</item>
+        <item name="android:textColorSecondary">@color/a_text_label</item>
+    </style>
+
 
 </resources>
 

@@ -1,4 +1,4 @@
-package de.moja.bier_tab_v2_XX.app;
+package de.moja.bier_tab_v2_XX.web_connect;
 
 import android.app.Application;
 import android.text.TextUtils;

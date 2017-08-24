@@ -18,6 +18,9 @@
 
     <string name="unit_g">g</string>
     <string name="unit_ebc">EBC</string>
+    <string name="lbl_unit_Liter">Liter</string>
+    <string name="lbl_unit_minuten">Minuten</string>
+    <string name="lbl_unit_Alpha">%Alpha</string>
 
 
 
@@ -26,14 +29,12 @@
     <string name="lbl_version">v.:</string>
     <string name="lbl_hopfen">Hopfen:</string>
     <string name="lbl_komma">,</string>
-    <string name="lbl_unit_Alpha">%Alpha</string>
+
     <string name="lbl_Hefe">Hefe:</string>
     <string name="lbl_Wasser">Wasser:</string>
-    <string name="lbl_unit_Liter">Liter</string>
     <string name="lbl_Hauptguss">Hauptguss:</string>
     <string name="lbl_Nachguss">Nachguss</string>
     <string name="lbl_Rasten">Rasten</string>
-
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="hint_name">Fullname</string>

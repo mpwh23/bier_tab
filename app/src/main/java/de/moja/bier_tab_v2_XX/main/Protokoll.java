@@ -1,7 +1,6 @@
-package de.moja.bier_tab_v2_XX;
+package de.moja.bier_tab_v2_XX.main;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,8 +8,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,6 +22,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ImageButton;
 import android.widget.EditText;
@@ -43,31 +41,42 @@ import com.punchthrough.bean.sdk.BeanListener;
 import com.punchthrough.bean.sdk.BeanDiscoveryListener;
 import com.punchthrough.bean.sdk.Bean;
 
+import de.moja.bier_tab_v2_XX.R;
+
+import static android.view.View.GONE;
+
 
 public class Protokoll extends AppCompatActivity implements BeanDiscoveryListener, BeanListener, Observer {
     //Objekte
     final String TAG = "Bier";
     //UI
     public Button myButton,myButton2,btn_prot_add_date;
-    public ImageButton btn_addm,btn_addh,btn_addr;
+    public ImageButton btn_addm,btn_addh,btn_addr,btn_addz;
     public ImageButton btn_subm_01,btn_subm_02,btn_subm_03,btn_subm_04,btn_subm_05,btn_subm_06;
     public ImageButton btn_subh_01,btn_subh_02,btn_subh_03,btn_subh_04;
     public ImageButton btn_subr_01,btn_subr_02,btn_subr_03,btn_subr_04,btn_subr_05;
+    public ImageButton btn_subz_01,btn_subz_02,btn_subz_03,btn_subz_04;
     public LinearLayout malt01,malt02,malt03,malt04,malt05,malt06;
     public LinearLayout hop01,hop02,hop03,hop04;
     public LinearLayout rast01,rast02,rast03,rast04,rast05;
+    public LinearLayout zusatz01,zusatz02,zusatz03,zusatz04;
     public AutoCompleteTextView actf_malt01,actf_malt02,actf_malt03,actf_malt04,actf_malt05,actf_malt06;
     public EditText et_EBCm1min,et_EBCm2min,et_EBCm3min,et_EBCm4min,et_EBCm5min,et_EBCm6min;
     public EditText et_EBCm1max,et_EBCm2max,et_EBCm3max,et_EBCm4max,et_EBCm5max,et_EBCm6max;
     public EditText et_malt01g,et_malt02g,et_malt03g,et_malt04g,et_malt05g,et_malt06g;
     public EditText et_prot_datum;
     public AutoCompleteTextView actf_hop01,actf_hop02,actf_hop03,actf_hop04;
+    public AutoCompleteTextView actf_zusatz01,actf_zusatz02,actf_zusatz03,actf_zusatz04;
     public EditText et_hop01a,et_hop02a,et_hop03a,et_hop04a;
     public AutoCompleteTextView actf_hefe01;
     public EditText et_rast01,et_rast02,et_rast03,et_rast04,et_rast05;
     public TextView lbl_r1,lbl_r2,lbl_r3,lbl_r4,lbl_r5;
+    public TextView malzges,malzEBC;
+    public TextView zusatz_lbl;
+    public LinearLayout zusatz_area;
+    public CheckBox zusatz_cb;
     //Var
-    private int malt = 1,hop = 1,rast =1;
+    private int malt = 1,hop = 1,rast =1,zusatz =1;
     public String filename_malt = "malt.db";
     public String filename_hop  = "hop.db";
     public String filename_hefe = "hefe.db";
@@ -132,6 +141,10 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
         });
 
         //region UI
+        zusatz_area = (LinearLayout) findViewById(R.id.prot_zusatz_area);
+        zusatz_lbl = (TextView) findViewById(R.id.prot_tv_zusatz);
+        zusatz_cb = (CheckBox) findViewById(R.id.prot_cb_zusatz);
+
         btn_addm = (ImageButton) findViewById(R.id.prot_btn_addmalt);
         btn_subm_01 = (ImageButton) findViewById(R.id.prot_submalt_01);
         btn_subm_02 = (ImageButton) findViewById(R.id.prot_submalt_02);
@@ -153,6 +166,11 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
         btn_subr_04 = (ImageButton) findViewById(R.id.prot_subrast_04);
         btn_subr_05 = (ImageButton) findViewById(R.id.prot_subrast_05);
 
+        btn_addz = (ImageButton) findViewById(R.id.prot_btn_addzusatz);
+        btn_subz_01 = (ImageButton) findViewById(R.id.prot_subzusatz_01);
+        btn_subz_02 = (ImageButton) findViewById(R.id.prot_subzusatz_02);
+        btn_subz_03 = (ImageButton) findViewById(R.id.prot_subzusatz_03);
+        btn_subz_04 = (ImageButton) findViewById(R.id.prot_subzusatz_04);
 
         actf_malt01 = (AutoCompleteTextView) findViewById(R.id.prot_actf_malt01);
         actf_malt02 = (AutoCompleteTextView) findViewById(R.id.prot_actf_malt02);
@@ -186,6 +204,11 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
         actf_hop03 = (AutoCompleteTextView) findViewById(R.id.prot_actf_hop3);
         actf_hop04 = (AutoCompleteTextView) findViewById(R.id.prot_actf_hop4);
 
+        actf_zusatz01 = (AutoCompleteTextView) findViewById(R.id.prot_actf_zusatz1);
+        actf_zusatz02 = (AutoCompleteTextView) findViewById(R.id.prot_actf_zusatz2);
+        actf_zusatz03 = (AutoCompleteTextView) findViewById(R.id.prot_actf_zusatz3);
+        actf_zusatz04 = (AutoCompleteTextView) findViewById(R.id.prot_actf_zusatz4);
+
         et_hop01a = (EditText) findViewById(R.id.prot_et_hop01iso);
         et_hop02a = (EditText) findViewById(R.id.prot_et_hop02iso);
         et_hop03a = (EditText) findViewById(R.id.prot_et_hop03iso);
@@ -205,6 +228,9 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
         lbl_r4 = (TextView) findViewById(R.id.prot_lbl_r4);
         lbl_r5 = (TextView) findViewById(R.id.prot_lbl_r5);
 
+        malzges = (TextView) findViewById(R.id.prot_tv_schuettung);
+        malzEBC = (TextView) findViewById(R.id.prot_tv_ebc);
+
 
         //malt01 = (LinearLayout) findViewById(R.id.malt01);
         malt02 = (LinearLayout) findViewById(R.id.malt02);
@@ -223,6 +249,11 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
         rast03 = (LinearLayout) findViewById(R.id.rast03);
         rast04 = (LinearLayout) findViewById(R.id.rast04);
         rast05 = (LinearLayout) findViewById(R.id.rast05);
+
+        //zusatz01 = (LinearLayout) findViewById(R.id.zusatz01);
+        zusatz02 = (LinearLayout) findViewById(R.id.zusatz02);
+        zusatz03 = (LinearLayout) findViewById(R.id.zusatz03);
+        zusatz04 = (LinearLayout) findViewById(R.id.zusatz04);
 
         //endregion
 
@@ -320,29 +351,35 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
         //endregion
 
         //region INIT
+        zusatz();
 
-        malt02.setVisibility(View.GONE);
-        malt03.setVisibility(View.GONE);
-        malt04.setVisibility(View.GONE);
-        malt05.setVisibility(View.GONE);
-        malt06.setVisibility(View.GONE);
-        btn_subm_01.setVisibility(View.GONE);
-        btn_subm_02.setVisibility(View.GONE);
-        btn_subm_03.setVisibility(View.GONE);
-        btn_subm_04.setVisibility(View.GONE);
-        btn_subm_05.setVisibility(View.GONE);
-        btn_subm_06.setVisibility(View.GONE);
+        malt02.setVisibility(GONE);
+        malt03.setVisibility(GONE);
+        malt04.setVisibility(GONE);
+        malt05.setVisibility(GONE);
+        malt06.setVisibility(GONE);
+        btn_subm_01.setVisibility(GONE);
+        /*btn_subm_02.setVisibility(GONE);
+        btn_subm_03.setVisibility(GONE);
+        btn_subm_04.setVisibility(GONE);
+        btn_subm_05.setVisibility(GONE);
+        btn_subm_06.setVisibility(GONE);*/
 
-        hop02.setVisibility(View.GONE);
-        hop03.setVisibility(View.GONE);
-        hop04.setVisibility(View.GONE);
-        btn_subh_01.setVisibility(View.GONE);
+        hop02.setVisibility(GONE);
+        hop03.setVisibility(GONE);
+        hop04.setVisibility(GONE);
+        btn_subh_01.setVisibility(GONE);
 
-        rast02.setVisibility(View.GONE);
-        rast03.setVisibility(View.GONE);
-        rast04.setVisibility(View.GONE);
-        rast05.setVisibility(View.GONE);
-        btn_subr_01.setVisibility(View.GONE);
+        rast02.setVisibility(GONE);
+        rast03.setVisibility(GONE);
+        rast04.setVisibility(GONE);
+        rast05.setVisibility(GONE);
+        btn_subr_01.setVisibility(GONE);
+
+        zusatz02.setVisibility(GONE);
+        zusatz03.setVisibility(GONE);
+        zusatz04.setVisibility(GONE);
+        btn_subz_01.setVisibility(GONE);
 
         //endregion /
         print();
@@ -354,6 +391,19 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
         et_rast04.addTextChangedListener(watcher);
         et_rast05.addTextChangedListener(watcher);
 
+        et_EBCm1min.addTextChangedListener(watcher);
+        et_EBCm1max.addTextChangedListener(watcher);
+        et_EBCm2min.addTextChangedListener(watcher);
+        et_EBCm2max.addTextChangedListener(watcher);
+        et_EBCm3min.addTextChangedListener(watcher);
+        et_EBCm3max.addTextChangedListener(watcher);
+        et_EBCm4min.addTextChangedListener(watcher);
+        et_EBCm4max.addTextChangedListener(watcher);
+        et_EBCm5min.addTextChangedListener(watcher);
+        et_EBCm5max.addTextChangedListener(watcher);
+        et_EBCm6min.addTextChangedListener(watcher);
+        et_EBCm6max.addTextChangedListener(watcher);
+
         actf_malt01.addTextChangedListener(EBCwatcher);
         actf_malt02.addTextChangedListener(EBCwatcher);
         actf_malt03.addTextChangedListener(EBCwatcher);
@@ -361,27 +411,20 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
         actf_malt05.addTextChangedListener(EBCwatcher);
         actf_malt06.addTextChangedListener(EBCwatcher);
 
-        /*
-        actf_malt01.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                Log.d(TAG,"listener");
-                String tmpcheck = actf_malt01.getText().toString();
-                for(int n=0;n<maltlist.size();n++){
-                    if(tmpcheck.equals(maltlist.get(n))){
-                        Log.d(TAG,"TREFFER");
-                    }
-                }
-                //add_maltlist(actf_malt01.getText().toString());
-            }
-        });
-*/
+        et_malt01g.addTextChangedListener(watcher);
+        et_malt02g.addTextChangedListener(watcher);
+        et_malt03g.addTextChangedListener(watcher);
+        et_malt04g.addTextChangedListener(watcher);
+        et_malt05g.addTextChangedListener(watcher);
+        et_malt06g.addTextChangedListener(watcher);
 
-        //region add buttons (3x)
+
+        //region add buttons
         btn_addm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 add_malt();
+
             }
         });
         btn_addh.setOnClickListener(new View.OnClickListener() {
@@ -390,12 +433,27 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
                 add_hop();
             }
         });
+        btn_addz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                add_zusatz();
+            }
+        });
         btn_addr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 add_rast();
             }
         });//endregion
+
+
+
+        zusatz_cb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                zusatz();
+            }
+        });
 
         //region btn sub buttons (
         //malt
@@ -490,7 +548,33 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
             public void onClick(View v) {
                 sub_rast(5);
             }
-        });//endregion
+        });
+        //zusatz
+        btn_subz_01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sub_zusatz(1);
+            }
+        });
+        btn_subz_02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sub_zusatz(2);
+            }
+        });
+        btn_subz_03.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sub_zusatz(3);
+            }
+        });
+        btn_subz_04.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sub_zusatz(4);
+            }
+        });
+        //endregion
     }
 
     //Datenbank
@@ -712,7 +796,8 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
         if(malt == 3){malt03.setVisibility(View.VISIBLE);btn_subm_03.setVisibility(View.VISIBLE);}
         if(malt == 4){malt04.setVisibility(View.VISIBLE);btn_subm_04.setVisibility(View.VISIBLE);}
         if(malt == 5){malt05.setVisibility(View.VISIBLE);btn_subm_05.setVisibility(View.VISIBLE);}
-        if(malt == 6){malt06.setVisibility(View.VISIBLE);btn_subm_06.setVisibility(View.VISIBLE);btn_addm.setVisibility(View.GONE);}
+        if(malt == 6){malt06.setVisibility(View.VISIBLE);btn_subm_06.setVisibility(View.VISIBLE);btn_addm.setVisibility(GONE);}
+        print();
     }
     public void add_hop(){
         if(hop<=3){hop += 1;}
@@ -720,7 +805,7 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
 
         if(hop == 2){hop02.setVisibility(View.VISIBLE);}
         if(hop == 3){hop03.setVisibility(View.VISIBLE);}
-        if(hop == 4){hop04.setVisibility(View.VISIBLE);btn_addh.setVisibility(View.GONE);}
+        if(hop == 4){hop04.setVisibility(View.VISIBLE);btn_addh.setVisibility(GONE);}
     }
     public void add_rast(){
         if(rast<=4){rast += 1;}
@@ -729,7 +814,15 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
         if(rast == 2){rast02.setVisibility(View.VISIBLE);}
         if(rast == 3){rast03.setVisibility(View.VISIBLE);}
         if(rast == 4){rast04.setVisibility(View.VISIBLE);}
-        if(rast == 5){rast05.setVisibility(View.VISIBLE);btn_addr.setVisibility(View.GONE);}
+        if(rast == 5){rast05.setVisibility(View.VISIBLE);btn_addr.setVisibility(GONE);}
+    }
+    public void add_zusatz(){
+        if(zusatz<=3){zusatz += 1;}
+        btn_subz_01.setVisibility(View.VISIBLE);
+
+        if(zusatz == 2){zusatz02.setVisibility(View.VISIBLE);}
+        if(zusatz == 3){zusatz03.setVisibility(View.VISIBLE);}
+        if(zusatz == 4){zusatz04.setVisibility(View.VISIBLE);btn_addz.setVisibility(GONE);}
     }
 
     public void sub_malt(int maltno){
@@ -741,11 +834,11 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
                 actf_malt03.setText(actf_malt04.getText());et_malt03g.setText(et_malt04g.getText());
                 actf_malt04.setText(actf_malt05.getText());et_malt04g.setText(et_malt05g.getText());
                 actf_malt05.setText(actf_malt06.getText());et_malt05g.setText(et_malt06g.getText());
-                if(malt == 2){actf_malt02.setText("");malt02.setVisibility(View.GONE);btn_subm_02.setVisibility(View.GONE);}
-                if(malt == 3){actf_malt03.setText("");malt03.setVisibility(View.GONE);btn_subm_03.setVisibility(View.GONE);}
-                if(malt == 4){actf_malt04.setText("");malt04.setVisibility(View.GONE);btn_subm_04.setVisibility(View.GONE);}
-                if(malt == 5){actf_malt05.setText("");malt05.setVisibility(View.GONE);btn_subm_05.setVisibility(View.GONE);}
-                if(malt == 6){actf_malt06.setText("");malt06.setVisibility(View.GONE);btn_subm_06.setVisibility(View.GONE);}
+                if(malt == 2){actf_malt02.setText("");et_malt02g.setText("");malt02.setVisibility(GONE);btn_subm_02.setVisibility(GONE);}
+                if(malt == 3){actf_malt03.setText("");et_malt03g.setText("");malt03.setVisibility(GONE);btn_subm_03.setVisibility(GONE);}
+                if(malt == 4){actf_malt04.setText("");et_malt04g.setText("");malt04.setVisibility(GONE);btn_subm_04.setVisibility(GONE);}
+                if(malt == 5){actf_malt05.setText("");et_malt05g.setText("");malt05.setVisibility(GONE);btn_subm_05.setVisibility(GONE);}
+                if(malt == 6){actf_malt06.setText("");et_malt06g.setText("");malt06.setVisibility(GONE);btn_subm_06.setVisibility(GONE);}
                 malt -= 1;
                 break;
             case 2:
@@ -753,42 +846,43 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
                 actf_malt03.setText(actf_malt04.getText());et_malt03g.setText(et_malt04g.getText());
                 actf_malt04.setText(actf_malt05.getText());et_malt04g.setText(et_malt05g.getText());
                 actf_malt05.setText(actf_malt06.getText());et_malt05g.setText(et_malt06g.getText());
-                if(malt == 2){actf_malt02.setText("");malt02.setVisibility(View.GONE);btn_subm_02.setVisibility(View.GONE);}
-                if(malt == 3){actf_malt03.setText("");malt03.setVisibility(View.GONE);btn_subm_03.setVisibility(View.GONE);}
-                if(malt == 4){actf_malt04.setText("");malt04.setVisibility(View.GONE);btn_subm_04.setVisibility(View.GONE);}
-                if(malt == 5){actf_malt05.setText("");malt05.setVisibility(View.GONE);btn_subm_05.setVisibility(View.GONE);}
-                if(malt == 6){actf_malt06.setText("");malt06.setVisibility(View.GONE);btn_subm_06.setVisibility(View.GONE);}
+                if(malt == 2){actf_malt02.setText("");et_malt02g.setText("");malt02.setVisibility(GONE);btn_subm_02.setVisibility(GONE);}
+                if(malt == 3){actf_malt03.setText("");et_malt03g.setText("");malt03.setVisibility(GONE);btn_subm_03.setVisibility(GONE);}
+                if(malt == 4){actf_malt04.setText("");et_malt04g.setText("");malt04.setVisibility(GONE);btn_subm_04.setVisibility(GONE);}
+                if(malt == 5){actf_malt05.setText("");et_malt05g.setText("");malt05.setVisibility(GONE);btn_subm_05.setVisibility(GONE);}
+                if(malt == 6){actf_malt06.setText("");et_malt06g.setText("");malt06.setVisibility(GONE);btn_subm_06.setVisibility(GONE);}
                 malt -= 1;
                 break;
             case 3:
                 actf_malt03.setText(actf_malt04.getText());et_malt03g.setText(et_malt04g.getText());
                 actf_malt04.setText(actf_malt05.getText());et_malt04g.setText(et_malt05g.getText());
                 actf_malt05.setText(actf_malt06.getText());et_malt05g.setText(et_malt06g.getText());
-                if(malt == 3){actf_malt03.setText("");malt03.setVisibility(View.GONE);btn_subm_03.setVisibility(View.GONE);}
-                if(malt == 4){actf_malt04.setText("");malt04.setVisibility(View.GONE);btn_subm_04.setVisibility(View.GONE);}
-                if(malt == 5){actf_malt05.setText("");malt05.setVisibility(View.GONE);btn_subm_05.setVisibility(View.GONE);}
-                if(malt == 6){actf_malt06.setText("");malt06.setVisibility(View.GONE);btn_subm_06.setVisibility(View.GONE);}
+                if(malt == 3){actf_malt03.setText("");et_malt03g.setText("");malt03.setVisibility(GONE);btn_subm_03.setVisibility(GONE);}
+                if(malt == 4){actf_malt04.setText("");et_malt04g.setText("");malt04.setVisibility(GONE);btn_subm_04.setVisibility(GONE);}
+                if(malt == 5){actf_malt05.setText("");et_malt05g.setText("");malt05.setVisibility(GONE);btn_subm_05.setVisibility(GONE);}
+                if(malt == 6){actf_malt06.setText("");et_malt06g.setText("");malt06.setVisibility(GONE);btn_subm_06.setVisibility(GONE);}
                 malt -= 1;
                 break;
             case 4:
                 actf_malt04.setText(actf_malt05.getText());et_malt04g.setText(et_malt05g.getText());
                 actf_malt05.setText(actf_malt06.getText());et_malt05g.setText(et_malt06g.getText());
-                if(malt == 4){actf_malt04.setText("");malt04.setVisibility(View.GONE);btn_subm_04.setVisibility(View.GONE);}
-                if(malt == 5){actf_malt05.setText("");malt05.setVisibility(View.GONE);btn_subm_05.setVisibility(View.GONE);}
-                if(malt == 6){actf_malt06.setText("");malt06.setVisibility(View.GONE);btn_subm_06.setVisibility(View.GONE);}
+                if(malt == 4){actf_malt04.setText("");et_malt04g.setText("");malt04.setVisibility(GONE);btn_subm_04.setVisibility(GONE);}
+                if(malt == 5){actf_malt05.setText("");et_malt05g.setText("");malt05.setVisibility(GONE);btn_subm_05.setVisibility(GONE);}
+                if(malt == 6){actf_malt06.setText("");et_malt06g.setText("");malt06.setVisibility(GONE);btn_subm_06.setVisibility(GONE);}
                 malt -= 1;
                 break;
             case 5:
                 actf_malt05.setText(actf_malt06.getText());et_malt05g.setText(et_malt06g.getText());
-                if(malt == 5){actf_malt05.setText("");malt05.setVisibility(View.GONE);btn_subm_05.setVisibility(View.GONE);}
-                if(malt == 6){actf_malt06.setText("");malt06.setVisibility(View.GONE);btn_subm_06.setVisibility(View.GONE);}
+                if(malt == 5){actf_malt05.setText("");et_malt05g.setText("");malt05.setVisibility(GONE);btn_subm_05.setVisibility(GONE);}
+                if(malt == 6){actf_malt06.setText("");et_malt06g.setText("");malt06.setVisibility(GONE);btn_subm_06.setVisibility(GONE);}
                 malt -= 1;
                 break;
             case 6:
-                malt06.setVisibility(View.GONE);btn_subm_06.setVisibility(View.GONE);
+                malt06.setVisibility(GONE);btn_subm_06.setVisibility(GONE);
                 break;
         }
-        if(malt==1){btn_subm_01.setVisibility(View.GONE);}
+        if(malt==1){btn_subm_01.setVisibility(GONE);}
+        print();
     }
     public void sub_hop(int hopno){
         btn_addh.setVisibility(View.VISIBLE);
@@ -797,30 +891,30 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
                 actf_hop01.setText(actf_hop02.getText());et_hop01a.setText(et_hop02a.getText());
                 actf_hop02.setText(actf_hop03.getText());et_hop02a.setText(et_hop03a.getText());
                 actf_hop03.setText(actf_hop04.getText());et_hop03a.setText(et_hop04a.getText());
-                if(hop == 2){actf_hop02.setText("");hop02.setVisibility(View.GONE);}
-                if(hop == 3){actf_hop03.setText("");hop03.setVisibility(View.GONE);}
-                if(hop == 4){actf_hop04.setText("");hop04.setVisibility(View.GONE);}
+                if(hop == 2){actf_hop02.setText("");hop02.setVisibility(GONE);}
+                if(hop == 3){actf_hop03.setText("");hop03.setVisibility(GONE);}
+                if(hop == 4){actf_hop04.setText("");hop04.setVisibility(GONE);}
                 hop -= 1;
                 break;
             case 2:
                 actf_hop02.setText(actf_hop03.getText());et_hop02a.setText(et_hop03a.getText());
                 actf_hop03.setText(actf_hop04.getText());et_hop03a.setText(et_hop04a.getText());
-                if(hop == 2){actf_hop02.setText("");hop02.setVisibility(View.GONE);}
-                if(hop == 3){actf_hop03.setText("");hop03.setVisibility(View.GONE);}
-                if(hop == 4){actf_hop04.setText("");hop04.setVisibility(View.GONE);}
+                if(hop == 2){actf_hop02.setText("");hop02.setVisibility(GONE);}
+                if(hop == 3){actf_hop03.setText("");hop03.setVisibility(GONE);}
+                if(hop == 4){actf_hop04.setText("");hop04.setVisibility(GONE);}
                 hop -= 1;
                 break;
             case 3:
                 actf_hop03.setText(actf_hop04.getText());et_hop03a.setText(et_hop04a.getText());
-                if(hop == 3){actf_malt05.setText("");hop03.setVisibility(View.GONE);}
-                if(hop == 4){actf_malt06.setText("");hop04.setVisibility(View.GONE);}
+                if(hop == 3){actf_malt05.setText("");hop03.setVisibility(GONE);}
+                if(hop == 4){actf_malt06.setText("");hop04.setVisibility(GONE);}
                 hop -= 1;
                 break;
             case 4:
-                hop04.setVisibility(View.GONE);
+                hop04.setVisibility(GONE);
                 break;
         }
-        if(hop==1){btn_subh_01.setVisibility(View.GONE);}
+        if(hop==1){btn_subh_01.setVisibility(GONE);}
     }
     public void sub_rast(int rastno){
         btn_addr.setVisibility(View.VISIBLE);
@@ -830,41 +924,87 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
                 et_rast02.setText(et_rast03.getText());
                 et_rast03.setText(et_rast04.getText());
                 et_rast04.setText(et_rast05.getText());
-                if(rast == 2){et_rast02.setText("");rast02.setVisibility(View.GONE);}
-                if(rast == 3){et_rast03.setText("");rast03.setVisibility(View.GONE);}
-                if(rast == 4){et_rast04.setText("");rast04.setVisibility(View.GONE);}
-                if(rast == 5){et_rast05.setText("");rast05.setVisibility(View.GONE);}
+                if(rast == 2){et_rast02.setText("");rast02.setVisibility(GONE);}
+                if(rast == 3){et_rast03.setText("");rast03.setVisibility(GONE);}
+                if(rast == 4){et_rast04.setText("");rast04.setVisibility(GONE);}
+                if(rast == 5){et_rast05.setText("");rast05.setVisibility(GONE);}
                 rast -= 1;
                 break;
             case 2:
                 et_rast02.setText(et_rast03.getText());
                 et_rast03.setText(et_rast04.getText());
                 et_rast04.setText(et_rast05.getText());
-                if(rast == 2){et_rast02.setText("");rast02.setVisibility(View.GONE);}
-                if(rast == 3){et_rast03.setText("");rast03.setVisibility(View.GONE);}
-                if(rast == 4){et_rast04.setText("");rast04.setVisibility(View.GONE);}
-                if(rast == 5){et_rast05.setText("");rast05.setVisibility(View.GONE);}
+                if(rast == 2){et_rast02.setText("");rast02.setVisibility(GONE);}
+                if(rast == 3){et_rast03.setText("");rast03.setVisibility(GONE);}
+                if(rast == 4){et_rast04.setText("");rast04.setVisibility(GONE);}
+                if(rast == 5){et_rast05.setText("");rast05.setVisibility(GONE);}
                 rast -= 1;
                 break;
             case 3:
                 et_rast03.setText(et_rast04.getText());
                 et_rast04.setText(et_rast05.getText());
-                if(rast == 3){et_rast03.setText("");rast03.setVisibility(View.GONE);}
-                if(rast == 4){et_rast04.setText("");rast04.setVisibility(View.GONE);}
-                if(rast == 5){et_rast05.setText("");rast05.setVisibility(View.GONE);}
+                if(rast == 3){et_rast03.setText("");rast03.setVisibility(GONE);}
+                if(rast == 4){et_rast04.setText("");rast04.setVisibility(GONE);}
+                if(rast == 5){et_rast05.setText("");rast05.setVisibility(GONE);}
                 rast -= 1;
                 break;
             case 4:
                 et_rast04.setText(et_rast05.getText());
-                if(rast == 4){et_rast04.setText("");rast04.setVisibility(View.GONE);}
-                if(rast == 5){et_rast05.setText("");rast05.setVisibility(View.GONE);}
+                if(rast == 4){et_rast04.setText("");rast04.setVisibility(GONE);}
+                if(rast == 5){et_rast05.setText("");rast05.setVisibility(GONE);}
                 rast -= 1;
                 break;
             case 5:
-                rast05.setVisibility(View.GONE);
+                rast05.setVisibility(GONE);
                 break;
         }
-        if(rast==1){btn_subr_01.setVisibility(View.GONE);}
+        if(rast==1){btn_subr_01.setVisibility(GONE);}
+    }
+    public void sub_zusatz(int zusatzno){
+        btn_addz.setVisibility(View.VISIBLE);
+        switch (zusatzno){
+            case 1:
+                actf_zusatz01.setText(actf_zusatz02.getText());
+                actf_zusatz02.setText(actf_zusatz03.getText());
+                actf_zusatz03.setText(actf_zusatz04.getText());
+                if(zusatz == 2){actf_zusatz02.setText("");zusatz02.setVisibility(GONE);}
+                if(zusatz == 3){actf_zusatz03.setText("");zusatz03.setVisibility(GONE);}
+                if(zusatz == 4){actf_zusatz04.setText("");zusatz04.setVisibility(GONE);}
+                zusatz -= 1;
+                break;
+            case 2:
+                actf_zusatz02.setText(actf_zusatz03.getText());
+                actf_zusatz03.setText(actf_zusatz04.getText());
+                if(zusatz == 2){actf_zusatz02.setText("");zusatz02.setVisibility(GONE);}
+                if(zusatz == 3){actf_zusatz03.setText("");zusatz03.setVisibility(GONE);}
+                if(zusatz == 4){actf_zusatz04.setText("");zusatz04.setVisibility(GONE);}
+                zusatz -= 1;
+                break;
+            case 3:
+                actf_zusatz03.setText(actf_zusatz04.getText());
+                if(zusatz == 3){actf_malt05.setText("");zusatz03.setVisibility(GONE);}
+                if(zusatz == 4){actf_malt06.setText("");zusatz04.setVisibility(GONE);}
+                zusatz -= 1;
+                break;
+            case 4:
+                zusatz04.setVisibility(GONE);
+                break;
+        }
+        if(zusatz==1){btn_subz_01.setVisibility(GONE);}
+    }
+
+    public void zusatz(){
+        if(zusatz_cb.isChecked()){
+            zusatz_area.setVisibility(View.VISIBLE);
+            zusatz_lbl.setText("");
+            zusatz_cb.setText("entfernen");
+
+        }else{
+            zusatz_area.setVisibility(View.GONE);
+            zusatz_lbl.setText("keine");
+            zusatz_cb.setText("hinzufügen");
+        }
+
     }
 
     private final TextWatcher watcher = new TextWatcher() {
@@ -977,13 +1117,91 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
 
     //Hier alle Felder aktualisieren
     public void print(){
+
         lbl_r1.setText(rastlbl(et_rast01,"Einmaischen"));
         lbl_r2.setText(rastlbl(et_rast02,"2. Rast\n"));
         lbl_r3.setText(rastlbl(et_rast03,"\n3. Rast"));
         lbl_r4.setText(rastlbl(et_rast03,"\n4. Rast"));
         lbl_r5.setText(rastlbl(et_rast03,"\n5. Rast"));
+
+        //malzschuettung aktualisieren
+        int gesmalz = 0;
+        if(et_malt01g.getText().length()>0){
+            gesmalz += Integer.parseInt(et_malt01g.getText().toString());
+        }
+        if(malt02.getVisibility()<1 && et_malt02g.getText().length()>0){
+            gesmalz += Integer.parseInt(et_malt02g.getText().toString());
+        }
+        if(malt03.getVisibility()<1 && et_malt03g.getText().length()>0){
+            gesmalz += Integer.parseInt(et_malt03g.getText().toString());
+        }
+        if(malt04.getVisibility()<1 && et_malt04g.getText().length()>0){
+            gesmalz += Integer.parseInt(et_malt04g.getText().toString());
+        }
+        if(malt05.getVisibility()<1 && et_malt05g.getText().length()>0){
+            gesmalz += Integer.parseInt(et_malt05g.getText().toString());
+        }
+        if(malt06.getVisibility()<1 && et_malt06g.getText().length()>0){
+            gesmalz += Integer.parseInt(et_malt06g.getText().toString());
+        }
+        malzges.setText(String.valueOf(gesmalz));
+
+        //EBC auswerten
+        int gesEBC = 0;
+        if(et_malt01g.getText().length()>0 && et_EBCm1min.getText().length()>0 && et_EBCm1max.getText().length()>0){
+            gesEBC += (Integer.parseInt(et_EBCm1min.getText().toString()) + Integer.parseInt(et_EBCm1max.getText().toString()))*5*Integer.parseInt(et_malt01g.getText().toString());
+        }
+        if(malt02.getVisibility()<1 && et_malt02g.getText().length()>0 && et_EBCm2min.getText().length()>0 && et_EBCm2max.getText().length()>0){
+            gesEBC += (Integer.parseInt(et_EBCm2min.getText().toString()) + Integer.parseInt(et_EBCm2max.getText().toString()))*5*Integer.parseInt(et_malt02g.getText().toString());
+        }
+        if(malt03.getVisibility()<1 && et_malt03g.getText().length()>0 && et_EBCm3min.getText().length()>0 && et_EBCm3max.getText().length()>0){
+            gesEBC += (Integer.parseInt(et_EBCm3min.getText().toString()) + Integer.parseInt(et_EBCm3max.getText().toString()))*5*Integer.parseInt(et_malt03g.getText().toString());
+        }
+        if(malt04.getVisibility()<1 && et_malt04g.getText().length()>0 && et_EBCm4min.getText().length()>0 && et_EBCm4max.getText().length()>0){
+            gesEBC += (Integer.parseInt(et_EBCm4min.getText().toString()) + Integer.parseInt(et_EBCm4max.getText().toString()))*5*Integer.parseInt(et_malt03g.getText().toString());
+        }
+        if(malt05.getVisibility()<1 && et_malt05g.getText().length()>0 && et_EBCm5min.getText().length()>0 && et_EBCm5max.getText().length()>0){
+            gesEBC += (Integer.parseInt(et_EBCm5min.getText().toString()) + Integer.parseInt(et_EBCm5max.getText().toString()))*5*Integer.parseInt(et_malt03g.getText().toString());
+        }
+        if(malt06.getVisibility()<1 && et_malt06g.getText().length()>0 && et_EBCm6min.getText().length()>0 && et_EBCm6max.getText().length()>0){
+            gesEBC += (Integer.parseInt(et_EBCm6min.getText().toString()) + Integer.parseInt(et_EBCm6max.getText().toString()))*5*Integer.parseInt(et_malt03g.getText().toString());
+        }
+
+        //Log.d(TAG,"valueEBC: "+gesEBC+", valueGES: "+gesmalz);
+        gesEBC = Math.round((float)gesEBC / (float)gesmalz / 10);
+
+        malzEBC.setText((String.valueOf(gesEBC)));
+        if(       et_EBCm1min.getText().length()==0 || et_EBCm1max.getText().length()==0
+                ||((et_EBCm2min.getText().length()==0 || et_EBCm2max.getText().length()==0)&&malt02.getVisibility()<1)
+                ||((et_EBCm3min.getText().length()==0 || et_EBCm3max.getText().length()==0)&&malt03.getVisibility()<1)
+                ||((et_EBCm4min.getText().length()==0 || et_EBCm4max.getText().length()==0)&&malt04.getVisibility()<1)
+                ||((et_EBCm5min.getText().length()==0 || et_EBCm5max.getText().length()==0)&&malt05.getVisibility()<1)
+                ||((et_EBCm6min.getText().length()==0 || et_EBCm6max.getText().length()==0)&&malt06.getVisibility()<1)){
+            malzEBC.setText("?");
+        }
+
     }
 
+    @Override
+    public void onBeanDiscovered(Bean bean, int rssi) {}
+    @Override
+    public void onDiscoveryComplete() {}
+    @Override
+    public void onConnected() {}
+    @Override
+    public void onConnectionFailed() {}
+    @Override
+    public void onDisconnected() {}
+    @Override
+    public void onSerialMessageReceived(byte[] data) {}
+    @Override
+    public void onScratchValueChanged(ScratchBank bank, byte[] value) {}
+    @Override
+    public void onError(BeanError error) {}
+    @Override
+    public void onReadRemoteRssi(int rssi) {}
+    @Override
+    public void update(Observable o, Object arg) {}
 
     //region NOTUSED
        /*
@@ -1058,24 +1276,4 @@ public class Protokoll extends AppCompatActivity implements BeanDiscoveryListene
        //endregion
 
 
-    @Override
-    public void onBeanDiscovered(Bean bean, int rssi) {}
-    @Override
-    public void onDiscoveryComplete() {}
-    @Override
-    public void onConnected() {}
-    @Override
-    public void onConnectionFailed() {}
-    @Override
-    public void onDisconnected() {}
-    @Override
-    public void onSerialMessageReceived(byte[] data) {}
-    @Override
-    public void onScratchValueChanged(ScratchBank bank, byte[] value) {}
-    @Override
-    public void onError(BeanError error) {}
-    @Override
-    public void onReadRemoteRssi(int rssi) {}
-    @Override
-    public void update(Observable o, Object arg) {}
 }

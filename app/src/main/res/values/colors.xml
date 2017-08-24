@@ -6,6 +6,7 @@
     <color name="AM_red">#a9121c</color>
     <color name="AM_darkgrey">#333333</color>
     <color name="AM_dark">#191919</color>
+    <color name="AM_trans">#00000000</color>
 
     <color name="colorPrimary">#333333</color>
     <color name="colorPrimaryDark">#191919</color>

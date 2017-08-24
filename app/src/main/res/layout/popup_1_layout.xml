@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="15dp"
+    android:background="#00ffffff"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_popup1_choice1"
+        android:layout_width="220dp"
+        android:layout_height="103dp"
+        android:layout_marginBottom="14dp"
+        android:text="neues Rezept" />
+
+    <Button
+        android:id="@+id/btn_popup1_choice2"
+        android:layout_width="220dp"
+        android:layout_height="103dp"
+        android:text="Rezeptdatenbank" />
+</LinearLayout>
